@@ -1,0 +1,70 @@
+# 1 Mostra os filmes assistidos por user1 e a nota dada.
+
+MATCH (u:User {nome:"user1"})-[w:WATCHED]->(m:Movie)
+RETURN m.nome AS filme, w.rating AS avaliacao
+ORDER BY avaliacao DESC;
+
+# 2 Séries assistidas por um usuário
+
+MATCH (u:User {nome:"user1"})-[w:WATCHED]->(s:Series)
+RETURN s.nome AS serie, w.rating AS avaliacao
+ORDER BY avaliacao DESC;
+
+# 3 Top 10 filmes mais assistidos
+
+MATCH (:User)-[:WATCHED]->(m:Movie)
+RETURN m.nome AS filme, COUNT(*) AS visualizacoes
+ORDER BY visualizacoes DESC
+LIMIT 10;
+
+# 4 Top 10 séries mais assistidas
+
+MATCH (:User)-[:WATCHED]->(s:Series)
+RETURN s.nome AS serie, COUNT(*) AS visualizacoes
+ORDER BY visualizacoes DESC
+LIMIT 10;
+
+# 5 Atores que participaram de um filme específico
+Exemplo com Homem-Aranha.
+
+MATCH (a:Actor)-[:ACTED_IN]->(m:Movie {nome:"Homem-Aranha: Sem Volta para Casa"})
+RETURN a.nome AS ator;
+
+# 6 Filmes de um determinado gênero
+Exemplo: Ação
+
+MATCH (m:Movie)-[:IN_GENRE]->(g:Genre {genero:"Ação"})
+RETURN m.nome AS filme;
+
+# 7 Filmes dirigidos por um diretor específico
+
+MATCH (d:Director {nome:"Christopher Nolan"})-[:DIRECTED]->(m:Movie)
+RETURN m.nome AS filme, m.lancamento;
+
+# 8 Recomendar filmes para um usuário (baseado em gênero)
+Recomenda filmes do mesmo gênero que o usuário já assistiu.
+
+MATCH (u:User {nome:"user1"})-[:WATCHED]->(m:Movie)-[:IN_GENRE]->(g:Genre)
+MATCH (rec:Movie)-[:IN_GENRE]->(g)
+WHERE NOT (u)-[:WATCHED]->(rec)
+RETURN DISTINCT rec.nome AS recomendacao
+LIMIT 10;
+
+# 9 Usuários com gosto parecido
+Encontra usuários que assistiram os mesmos filmes.
+
+MATCH (u1:User {nome:"user1"})-[:WATCHED]->(m:Movie)<-[:WATCHED]-(u2:User)
+WHERE u1 <> u2
+RETURN u2.nome AS usuario_similar, COUNT(m) AS filmes_em_comum
+ORDER BY filmes_em_comum DESC
+LIMIT 5;
+
+# 10 Recomendar filmes baseado em usuários similares (Collaborative Filtering)
+
+MATCH (u:User {nome:"user1"})-[:WATCHED]->(m:Movie)<-[:WATCHED]-(other:User)
+MATCH (other)-[:WATCHED]->(rec:Movie)
+WHERE NOT (u)-[:WATCHED]->(rec)
+RETURN rec.nome AS recomendacao, COUNT(*) AS popularidade
+ORDER BY popularidade DESC
+LIMIT 10;
+
