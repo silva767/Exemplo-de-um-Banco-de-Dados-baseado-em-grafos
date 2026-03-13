@@ -13,13 +13,16 @@ O projeto foi concebido para responder um desafio sobre um banco de dados basead
 ```
 Você pode baixar o software da neo4j, a versão desktop, ou utilizar a versão online do produto.
 ```
+A versão desktop apresenta algumas exigências de hardware que podem ser acessadas na página do produto, enquanto é possível utilizar a versão free para o exemplo em questão sem maiores dificuldades.
+A documentação do neo4j e da linguagem cypher pode ser acessada por aqui, [documentação neo4j](https://neo4j.com/docs/).
 
-A documentação pode ser acessada por aqui, [documentação neo4j](https://neo4j.com/docs/).
-
-### DB
+### DBGraph
 
 O banco apresenta a seguinte representação gráfica:
 
 ![Grafo do sistema](https://drive.google.com/uc?export=view&id=1eqGFLFoxBTq2tuef39d61BDjABquopie)
 
-A formatação segue como a descrita e pode ser acessada uma semente exemplo no arquivo xxxx
+A formatação segue como a descrita e pode ser acessada uma semente exemplo no arquivo [Exemplo de semente](https://github.com/silva767/Exemplo-de-um-Banco-de-Dados-baseado-em-grafos/blob/main/Exemplo%20de%20semente).
+
+
+
