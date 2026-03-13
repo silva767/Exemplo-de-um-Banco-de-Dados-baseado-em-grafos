@@ -20,6 +20,6 @@ A documentação pode ser acessada por aqui, [documentação neo4j](https://neo4
 
 O banco apresenta a seguinte representação gráfica:
 
-[![imagem](https://drive.google.com/file/d/1eqGFLFoxBTq2tuef39d61BDjABquopie/view?usp=sharing)]
+![Grafo do sistema](https://drive.google.com/uc?export=view&id=1eqGFLFoxBTq2tuef39d61BDjABquopie)
 
-<img src="https://drive.google.com/file/d/1eqGFLFoxBTq2tuef39d61BDjABquopie/view?usp=sharing" alt="Texto alternativo" width="300">
+A formatação segue como a descrita e pode ser acessada uma semente exemplo no arquivo xxxx
