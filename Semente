@@ -1,0 +1,206 @@
+Usuários
+CREATE
+(:User {nome:"user1"}),(:User {nome:"user2"}),(:User {nome:"user3"}),
+(:User {nome:"user4"}),(:User {nome:"user5"}),(:User {nome:"user6"}),
+(:User {nome:"user7"}),(:User {nome:"user8"}),(:User {nome:"user9"}),
+(:User {nome:"user10"}),(:User {nome:"user11"}),(:User {nome:"user12"}),
+(:User {nome:"user13"}),(:User {nome:"user14"}),(:User {nome:"user15"}),
+(:User {nome:"user16"}),(:User {nome:"user17"}),(:User {nome:"user18"}),
+(:User {nome:"user19"}),(:User {nome:"user20"}),(:User {nome:"user21"}),
+(:User {nome:"user22"}),(:User {nome:"user23"}),(:User {nome:"user24"}),
+(:User {nome:"user25"}),(:User {nome:"user26"}),(:User {nome:"user27"}),
+(:User {nome:"user28"}),(:User {nome:"user29"}),(:User {nome:"user30"});
+
+
+Gêneros
+CREATE
+(:Genre {genero:"Ação"}),(:Genre {genero:"Drama"}),(:Genre {genero:"Comédia"}),
+(:Genre {genero:"Suspense"}),(:Genre {genero:"Ficção Científica"}),
+(:Genre {genero:"Terror"}),(:Genre {genero:"Romance"}),(:Genre {genero:"Fantasia"}),
+(:Genre {genero:"Aventura"}),(:Genre {genero:"Crime"}),(:Genre {genero:"Mistério"}),
+(:Genre {genero:"Documentário"}),(:Genre {genero:"Animação"}),(:Genre {genero:"Biografia"}),
+(:Genre {genero:"Histórico"}),(:Genre {genero:"Guerra"}),(:Genre {genero:"Musical"}),
+(:Genre {genero:"Esporte"}),(:Genre {genero:"Família"}),(:Genre {genero:"Thriller"}),
+(:Genre {genero:"Psicológico"}),(:Genre {genero:"Super-herói"}),
+(:Genre {genero:"Cyberpunk"}),(:Genre {genero:"Distopia"}),(:Genre {genero:"Apocalipse"}),
+(:Genre {genero:"Policial"}),(:Genre {genero:"Investigação"}),
+(:Genre {genero:"Juvenil"}),(:Genre {genero:"Noir"}),(:Genre {genero:"Western"});
+
+
+Filmes
+CREATE
+(m1:Movie {nome:"Homem-Aranha: Sem Volta para Casa", lancamento:2021}),
+(m2:Movie {nome:"Vingadores: Ultimato", lancamento:2019}),
+(m3:Movie {nome:"Interestelar", lancamento:2014}),
+(m4:Movie {nome:"O Cavaleiro das Trevas", lancamento:2008}),
+(m5:Movie {nome:"Titanic", lancamento:1997}),
+(m6:Movie {nome:"Avatar", lancamento:2009}),
+(m7:Movie {nome:"Matrix", lancamento:1999}),
+(m8:Movie {nome:"Gladiador", lancamento:2000}),
+(m9:Movie {nome:"Jurassic Park", lancamento:1993}),
+(m10:Movie {nome:"Duna", lancamento:2021}),
+(m11:Movie {nome:"O Poderoso Chefão", lancamento:1972}),
+(m12:Movie {nome:"Pulp Fiction", lancamento:1994}),
+(m13:Movie {nome:"Forrest Gump", lancamento:1994}),
+(m14:Movie {nome:"Clube da Luta", lancamento:1999}),
+(m15:Movie {nome:"O Senhor dos Anéis: A Sociedade do Anel", lancamento:2001}),
+(m16:Movie {nome:"O Senhor dos Anéis: As Duas Torres", lancamento:2002}),
+(m17:Movie {nome:"O Senhor dos Anéis: O Retorno do Rei", lancamento:2003}),
+(m18:Movie {nome:"Star Wars: Uma Nova Esperança", lancamento:1977}),
+(m19:Movie {nome:"Star Wars: O Império Contra-Ataca", lancamento:1980}),
+(m20:Movie {nome:"Star Wars: O Retorno de Jedi", lancamento:1983}),
+(m21:Movie {nome:"Deadpool", lancamento:2016}),
+(m22:Movie {nome:"Logan", lancamento:2017}),
+(m23:Movie {nome:"Pantera Negra", lancamento:2018}),
+(m24:Movie {nome:"Doutor Estranho", lancamento:2016}),
+(m25:Movie {nome:"Homem de Ferro", lancamento:2008}),
+(m26:Movie {nome:"Capitão América: Guerra Civil", lancamento:2016}),
+(m27:Movie {nome:"Thor: Ragnarok", lancamento:2017}),
+(m28:Movie {nome:"Guardiões da Galáxia", lancamento:2014}),
+(m29:Movie {nome:"Mad Max: Estrada da Fúria", lancamento:2015}),
+(m30:Movie {nome:"Top Gun: Maverick", lancamento:2022});
+
+
+Séries
+CREATE
+(s1:Series {nome:"Stranger Things", ano:2016}),
+(s2:Series {nome:"Breaking Bad", ano:2008}),
+(s3:Series {nome:"Game of Thrones", ano:2011}),
+(s4:Series {nome:"The Last of Us", ano:2023}),
+(s5:Series {nome:"The Witcher", ano:2019}),
+(s6:Series {nome:"The Mandalorian", ano:2019}),
+(s7:Series {nome:"Dark", ano:2017}),
+(s8:Series {nome:"Peaky Blinders", ano:2013}),
+(s9:Series {nome:"The Office", ano:2005}),
+(s10:Series {nome:"Friends", ano:1994}),
+(s11:Series {nome:"House of the Dragon", ano:2022}),
+(s12:Series {nome:"The Boys", ano:2019}),
+(s13:Series {nome:"Loki", ano:2021}),
+(s14:Series {nome:"WandaVision", ano:2021}),
+(s15:Series {nome:"Arrow", ano:2012}),
+(s16:Series {nome:"Flash", ano:2014}),
+(s17:Series {nome:"Supernatural", ano:2005}),
+(s18:Series {nome:"Dexter", ano:2006}),
+(s19:Series {nome:"Narcos", ano:2015}),
+(s20:Series {nome:"Better Call Saul", ano:2015}),
+(s21:Series {nome:"Sherlock", ano:2010}),
+(s22:Series {nome:"Lost", ano:2004}),
+(s23:Series {nome:"Westworld", ano:2016}),
+(s24:Series {nome:"Black Mirror", ano:2011}),
+(s25:Series {nome:"The Crown", ano:2016}),
+(s26:Series {nome:"House", ano:2004}),
+(s27:Series {nome:"Prison Break", ano:2005}),
+(s28:Series {nome:"The Walking Dead", ano:2010}),
+(s29:Series {nome:"Vikings", ano:2013}),
+(s30:Series {nome:"Entre Estranhos", ano:2023});
+
+
+Atores
+CREATE
+(:Actor {nome:"Tom Holland", idade:27}),
+(:Actor {nome:"Robert Downey Jr.", idade:58}),
+(:Actor {nome:"Scarlett Johansson", idade:39}),
+(:Actor {nome:"Chris Evans", idade:42}),
+(:Actor {nome:"Chris Hemsworth", idade:40}),
+(:Actor {nome:"Mark Ruffalo", idade:56}),
+(:Actor {nome:"Leonardo DiCaprio", idade:49}),
+(:Actor {nome:"Brad Pitt", idade:60}),
+(:Actor {nome:"Morgan Freeman", idade:86}),
+(:Actor {nome:"Keanu Reeves", idade:59}),
+(:Actor {nome:"Tom Cruise", idade:61}),
+(:Actor {nome:"Ryan Reynolds", idade:47}),
+(:Actor {nome:"Hugh Jackman", idade:55}),
+(:Actor {nome:"Pedro Pascal", idade:48}),
+(:Actor {nome:"Bryan Cranston", idade:68}),
+(:Actor {nome:"Aaron Paul", idade:44}),
+(:Actor {nome:"Kit Harington", idade:37}),
+(:Actor {nome:"Emilia Clarke", idade:37}),
+(:Actor {nome:"Henry Cavill", idade:40}),
+(:Actor {nome:"Millie Bobby Brown", idade:20}),
+(:Actor {nome:"Cillian Murphy", idade:47}),
+(:Actor {nome:"Benedict Cumberbatch", idade:47}),
+(:Actor {nome:"Joaquin Phoenix", idade:49}),
+(:Actor {nome:"Christian Bale", idade:50}),
+(:Actor {nome:"Russell Crowe", idade:60}),
+(:Actor {nome:"Matt Damon", idade:53}),
+(:Actor {nome:"Gal Gadot", idade:38}),
+(:Actor {nome:"Zendaya", idade:27}),
+(:Actor {nome:"Timothée Chalamet", idade:28}),
+(:Actor {nome:"Anya Taylor-Joy", idade:28});
+
+
+Diretores
+CREATE
+(:Director {nome:"Christopher Nolan"}),
+(:Director {nome:"Steven Spielberg"}),
+(:Director {nome:"James Cameron"}),
+(:Director {nome:"Quentin Tarantino"}),
+(:Director {nome:"Martin Scorsese"}),
+(:Director {nome:"Ridley Scott"}),
+(:Director {nome:"Peter Jackson"}),
+(:Director {nome:"George Lucas"}),
+(:Director {nome:"Jon Watts"}),
+(:Director {nome:"Taika Waititi"}),
+(:Director {nome:"Denis Villeneuve"}),
+(:Director {nome:"Patty Jenkins"}),
+(:Director {nome:"Zack Snyder"}),
+(:Director {nome:"Russo Brothers"}),
+(:Director {nome:"James Gunn"}),
+(:Director {nome:"Sam Raimi"}),
+(:Director {nome:"David Fincher"}),
+(:Director {nome:"Tim Burton"}),
+(:Director {nome:"Alfred Hitchcock"}),
+(:Director {nome:"Stanley Kubrick"}),
+(:Director {nome:"Greta Gerwig"}),
+(:Director {nome:"Jordan Peele"}),
+(:Director {nome:"Rian Johnson"}),
+(:Director {nome:"Guillermo del Toro"}),
+(:Director {nome:"Clint Eastwood"}),
+(:Director {nome:"Kathryn Bigelow"}),
+(:Director {nome:"Ron Howard"}),
+(:Director {nome:"J.J. Abrams"}),
+(:Director {nome:"Jon Favreau"}),
+(:Director {nome:"Chloé Zhao"});
+
+
+Relacionamentos
+
+Usuários assistindo filmes
+MATCH (u:User),(m:Movie)
+WHERE rand() < 0.25
+CREATE (u)-[:WATCHED {rating: toInteger(rand()*10)+1}]->(m);
+
+
+Usuários assistindo séries
+MATCH (u:User),(s:Series)
+WHERE rand() < 0.25
+CREATE (u)-[:WATCHED {rating: toInteger(rand()*10)+1}]->(s);
+
+
+Filmes → Gêneros
+MATCH (m:Movie),(g:Genre)
+WHERE rand() < 0.2
+CREATE (m)-[:IN_GENRE]->(g);
+
+
+Séries → Gêneros
+MATCH (s:Series),(g:Genre)
+WHERE rand() < 0.2
+CREATE (s)-[:RELATED]->(g);
+
+
+Atores atuando em filmes e séries
+MATCH (a:Actor),(m:Movie)
+WHERE rand() < 0.2
+CREATE (a)-[:ACTED_IN]->(m);
+
+MATCH (a:Actor),(s:Series)
+WHERE rand() < 0.2
+CREATE (a)-[:ACTED_IN]->(s);
+
+
+Diretores dirigindo filmes
+MATCH (d:Director),(m:Movie)
+WHERE rand() < 0.3
+CREATE (d)-[:DIRECTED]->(m);
+
