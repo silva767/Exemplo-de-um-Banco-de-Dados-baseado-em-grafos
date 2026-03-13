@@ -1,0 +1,90 @@
+</> cypher
+
+// USERS
+UNWIND range(1,30) AS i
+CREATE (:User {nome: "user" + i});
+
+
+// ACTORS
+UNWIND range(1,30) AS i
+CREATE (:Actor {
+    nome: "actor" + i,
+    idade: 20 + (i % 25)
+});
+
+
+// DIRECTORS
+UNWIND range(1,30) AS i
+CREATE (:Director {
+    nome: "director" + i
+});
+
+
+// MOVIES
+UNWIND range(1,30) AS i
+CREATE (:Movie {
+    nome: "movie" + i,
+    lancamento: 2000 + i
+});
+
+
+// SERIES
+UNWIND range(1,30) AS i
+CREATE (:Series {
+    nome: "series" + i,
+    ano: 2000 + i
+});
+
+
+// GENRES
+UNWIND [
+"Ação","Drama","Suspense","Comédia","Romance","Ficção Científica",
+"Terror","Fantasia","Aventura","Mistério","Documentário","Animação",
+"Crime","Histórico","Guerra","Musical","Esporte","Biografia",
+"Família","Thriller","Psicológico","Super-herói","Western",
+"Noir","Cyberpunk","Distopia","Apocalipse","Policial",
+"Juvenil","Investigação"
+] AS g
+CREATE (:Genre {genero:g});
+
+MATCH (u:User), (m:Movie)
+WITH u, m
+WHERE rand() < 0.3
+CREATE (u)-[:WATCHED {rating: toInteger(rand()*10)+1}]->(m);
+
+MATCH (u:User), (s:Series)
+WITH u, s
+WHERE rand() < 0.25
+CREATE (u)-[:WATCHED {rating: toInteger(rand()*10)+1}]->(s);
+
+
+MATCH (m:Movie), (g:Genre)
+WITH m, g
+WHERE rand() < 0.2
+CREATE (m)-[:IN_GENRE]->(g);
+
+
+MATCH (s:Series), (g:Genre)
+WITH s, g
+WHERE rand() < 0.2
+CREATE (s)-[:RELATED]->(g);
+
+
+MATCH (a:Actor), (m:Movie)
+WITH a, m
+WHERE rand() < 0.2
+CREATE (a)-[:ACTED_IN]->(m);
+
+
+
+MATCH (a:Actor), (s:Series)
+WITH a, s
+WHERE rand() < 0.2
+CREATE (a)-[:ACTED_IN]->(s);
+
+
+MATCH (d:Director), (m:Movie)
+WITH d, m
+WHERE rand() < 0.3
+CREATE (d)-[:DIRECTED]->(m);
+
