@@ -20,4 +20,6 @@ A documentação pode ser acessada por aqui, [documentação neo4j](https://neo4
 
 O banco apresenta a seguinte representação gráfica:
 
-![imagem](https://keep.google.com/u/0/media/v2/1icxbkYq6CXtd8tLDHgU5YQaSQMHZY_IiVvMQH7bAvCRIG7A6fcqLmCosSh6Tpuc/1Bk0Bi_bAHktGOU8bFuqWN9ePvT7xKFmvIqyaHTok9VUx_V36lpomQqBTiQYz3Q?sz=512&accept=image%2Fgif%2Cimage%2Fjpeg%2Cimage%2Fjpg%2Cimage%2Fpng%2Cimage%2Fwebp)
+[![imagem](https://drive.google.com/file/d/1eqGFLFoxBTq2tuef39d61BDjABquopie/view?usp=sharing)]
+
+<img src="https://drive.google.com/file/d/1eqGFLFoxBTq2tuef39d61BDjABquopie/view?usp=sharing" alt="Texto alternativo" width="300">
