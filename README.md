@@ -23,6 +23,10 @@ O banco apresenta a seguinte representação gráfica:
 ![Grafo do sistema](https://drive.google.com/uc?export=view&id=1eqGFLFoxBTq2tuef39d61BDjABquopie)
 
 A formatação segue como a descrita e pode ser acessada uma semente exemplo no arquivo [Exemplo de semente](https://github.com/silva767/Exemplo-de-um-Banco-de-Dados-baseado-em-grafos/blob/main/Exemplo%20de%20semente).
+A escrita em cypher é similar ao SQL e apresenta sintaxe direta, intuitiva e fluída com palavras reservadas para a criação dos nós, relações e demais consultas. 
 
+Exemplos de consultas possíveis no DB - [Consultas cypher](https://github.com/silva767/Exemplo-de-um-Banco-de-Dados-baseado-em-grafos/blob/main/Consultas%20cypher).
+No arquivo estão dispostas 10 exemplos de consultas, que buscar responder diferentes perguntas ligadas ao escopo do banco.
 
-
+Semente inicial utilizada no teste - [Semente](https://github.com/silva767/Exemplo-de-um-Banco-de-Dados-baseado-em-grafos/blob/main/Consultas%20cypher). 
+No arquivo é disponibilizado uma semente com 180 nós iniciais, para usuários, atores, diretores, filmes e séries, inspirados em filmes e atores reais.
