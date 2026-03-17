@@ -1,4 +1,4 @@
-# Exemplo-de-um-Banco-de-Dados-baseado-em-grafos
+# Exemplos-de-um-Bancos-de-Dados-baseados-em-grafos
 Será disponibilizado um banco de dados baseado em grafos com uma semente e consultas padrões que podem ser realizadas na sua máquina nativa. 
 O banco de dados é escrito em cypher, uma lingugagem construida pela Neo4j para seus bancos de dados(BD), este projeto foi pensado para exemplificar um serviço de streaming com um BD baseado em grafos demonstrado a vsersatilidade e poder dos grafos.
 
@@ -16,7 +16,7 @@ Você pode baixar o software da neo4j, a versão desktop, ou utilizar a versão 
 A versão desktop apresenta algumas exigências de hardware que podem ser acessadas na página do produto, enquanto é possível utilizar a versão free para o exemplo em questão sem maiores dificuldades.
 A documentação do neo4j e da linguagem cypher pode ser acessada por aqui, [documentação neo4j](https://neo4j.com/docs/).
 
-### DBGraph
+### DBGraph de um serviço de streaming 
 
 O banco apresenta a seguinte representação gráfica:
 
@@ -30,3 +30,5 @@ No arquivo estão dispostas 10 exemplos de consultas, que buscar responder difer
 
 Semente inicial utilizada no teste - [Semente](https://github.com/silva767/Exemplo-de-um-Banco-de-Dados-baseado-em-grafos/blob/main/Consultas%20cypher). 
 No arquivo é disponibilizado uma semente com 180 nós iniciais, para usuários, atores, diretores, filmes e séries, inspirados em filmes e atores reais.
+
+### DBGraph de um serviço de uma plataforma de música
