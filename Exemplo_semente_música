@@ -1,0 +1,87 @@
+// Nós
+
+// Usuários
+UNWIND range(1,30) AS i
+CREATE (:Pessoa:Usuario {
+    id: i,
+    nome: "Usuario_" + i
+});
+
+// Artistas
+UNWIND range(1,30) AS i
+CREATE (:Pessoa:Artista {
+    id: i,
+    nome: "Artista_" + i
+});
+
+// Músicas
+UNWIND range(1,30) AS i
+CREATE (:Musica {
+    id: i,
+    titulo: "Musica_" + i,
+    ano: 2000 + (i % 20),
+    duracao: 180 + i
+});
+
+// Playlists
+UNWIND range(1,30) AS i
+CREATE (:Playlist {
+    id: i,
+    nome: "Playlist_" + i
+});
+
+// Gêneros
+UNWIND ["Rock","Pop","Jazz","HipHop","Eletronica","MPB","Classica","Reggae","Blues","Funk"] AS g
+CREATE (:Genero {nome: g});
+
+// Relações
+
+// Lançamento de música
+
+MATCH (a:Artista), (m:Musica)
+WHERE a.id = m.id
+CREATE (a)-[:LANCOU {data: date("2020-01-01") + duration({days: a.id})}]->(m);
+
+// Gênero de música
+
+MATCH (m:Musica), (g:Genero)
+WITH m, g ORDER BY rand()
+WITH m, collect(g)[0] AS genero
+CREATE (m)-[:PERTENCE]->(genero);
+
+// Usuário curtiu música
+
+MATCH (u:Usuario), (m:Musica)
+WHERE rand() < 0.3
+CREATE (u)-[:CURTIU {data: date("2024-01-01") + duration({days: toInteger(rand()*365)})}]->(m);
+
+// Usuário criou playlist
+
+MATCH (u:Usuario), (p:Playlist)
+WHERE u.id = p.id
+CREATE (u)-[:CRIOU {data: date("2025-01-01") + duration({days: u.id})}]->(p);
+
+// Playlist contém música (com ordem)
+
+MATCH (p:Playlist), (m:Musica)
+WHERE rand() < 0.2
+WITH p, m, toInteger(rand()*20) AS ordem
+CREATE (p)-[:CONTEM {ordem: ordem}]->(m);
+
+// Usuário segue usuário
+
+MATCH (u1:Usuario), (u2:Usuario)
+WHERE u1 <> u2 AND rand() < 0.2
+CREATE (u1)-[:SEGUE {data: date("2023-01-01") + duration({days: toInteger(rand()*700)})}]->(u2);
+
+// Usuário segue artistas
+
+MATCH (u:Usuario), (a:Artista)
+WHERE rand() < 0.3
+CREATE (u)-[:SEGUE {data: date("2023-01-01") + duration({days: toInteger(rand()*700)})}]->(a);
+
+// Artistas seguem artistas
+
+MATCH (a1:Artista), (a2:Artista)
+WHERE a1 <> a2 AND rand() < 0.15
+CREATE (a1)-[:SEGUE {data: date("2022-01-01") + duration({days: toInteger(rand()*1000)})}]->(a2);
