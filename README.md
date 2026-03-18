@@ -39,16 +39,14 @@ Com o diferencial de conectar dados por relações, os grafos, se tornam especia
 
 As entidades e suas relações serão estas:
 
-- Usuários
-- Artistas
-- Músicas
-- Playlist
-- Gêneros
-
-- Pertence
-- Curtiu
-- Segue
-- Criou
-- Lançou
+|Entidades | Relações |
+|--------|---------|
+|Usuários | Curtiu(entre pessoas e músicas) |
+|Artistas | Segue (entre pessoas) |
+|Músicas | Pertence (música e gênero) |
+|Playlist | Criou (pessoa e playlist) |
+|Gêneros | Lançou (artista e música) |
 
 Um arquivo com dados para um exemplo de semente são disponibilizados no arquivo xxxx, nele já é possível visualizar diversos caminhos e aplicar algumas consultas, mesmo sendo um modelo simplificado.
+
+No arquivo xxxx é disponibilizado uma semente de teste com alguns nós e relações disponíveis e no arquivo yyyy estão dispostas algumas consultas que retornam resultados interessantes e que demonstram o poder dos grafos em situações propicias para tal modelagem.
