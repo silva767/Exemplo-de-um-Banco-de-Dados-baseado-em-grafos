@@ -47,6 +47,40 @@ As entidades e suas relações serão estas:
 |Playlist | Criou (pessoa e playlist) |
 |Gêneros | Lançou (artista e música) |
 
-Um arquivo com dados para um exemplo de semente são disponibilizados no arquivo xxxx, nele já é possível visualizar diversos caminhos e aplicar algumas consultas, mesmo sendo um modelo simplificado.
+Um arquivo com dados para um exemplo de semente são disponibilizados no arquivo xxxx, nele já é possível visualizar diversos caminhos e aplicar algumas consultas, mesmo sendo um modelo simplificado, e que demonstram o poder dos grafos em situações propicias para tal modelagem.
 
-No arquivo xxxx é disponibilizado uma semente de teste com alguns nós e relações disponíveis e no arquivo yyyy estão dispostas algumas consultas que retornam resultados interessantes e que demonstram o poder dos grafos em situações propicias para tal modelagem.
+Nesse exemplo a semente similar a realidade será disponibilizada no formato LOAD CSV, um formato que simplica a carga nos bancos de dados, pois são dispostos no formato:
+
+```
+musicas.csv
+id,titulo,ano,duracao
+1,Envolver,2022,180
+2,Gods Plan,2018,198
+3,Shake It Off,2014,242
+4,Blinding Lights,2020,200
+5,Hear Me Now,2016,190
+6,Infiel,2016,210
+7,Yellow,2000,270
+```
+que permite a carga rápida com o uso de outro arquivo csv:
+
+```
+LOAD CSV WITH HEADERS FROM 'file:///musicas.csv' AS row
+CREATE (:Musica {
+   id: toInteger(row.id),
+   titulo: row.titulo,
+   ano: toInteger(row.ano),
+   duracao: toInteger(row.duracao)
+});
+```
+vale lembrar que os arquivos devem ser colocados na pasta import, ao utilizar o Neo4j.
+
+- Arquicos da relações:
+
+|Entidades | Relações |
+|--------|---------|
+|users |  usuario_segue & usuario_segue_artista |
+|artistas | artista_lancou  |
+|musicas | usuario_curtiu |
+|playlist | playlist_contem_musica |
+|generos | artista_genero |
