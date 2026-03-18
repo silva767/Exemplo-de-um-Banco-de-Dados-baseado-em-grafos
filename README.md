@@ -79,8 +79,10 @@ vale lembrar que os arquivos devem ser colocados na pasta import, ao utilizar o 
 
 |Entidades | Relações |
 |--------|---------|
-|users |  usuario_segue & usuario_segue_artista |
-|artistas | artista_lancou  |
-|musicas | usuario_curtiu |
-|playlist | playlist_contem_musica |
-|generos | artista_genero |
+|[users](https://github.com/silva767/Exemplo-de-um-Banco-de-Dados-baseado-em-grafos/blob/main/users.csv) |  [usuario_segue](https://github.com/silva767/Exemplo-de-um-Banco-de-Dados-baseado-em-grafos/blob/main/usuario_segue.csv) & [usuario_segue_artista](https://github.com/silva767/Exemplo-de-um-Banco-de-Dados-baseado-em-grafos/blob/main/usuario_segue_artista.csv) |
+|[artistas](https://github.com/silva767/Exemplo-de-um-Banco-de-Dados-baseado-em-grafos/blob/main/artistas.csv) | [artista_lancou](https://github.com/silva767/Exemplo-de-um-Banco-de-Dados-baseado-em-grafos/blob/main/artista_lancou.csv)  |
+|[musicas](https://github.com/silva767/Exemplo-de-um-Banco-de-Dados-baseado-em-grafos/blob/main/musicas.csv) | [usuario_curtiu](https://github.com/silva767/Exemplo-de-um-Banco-de-Dados-baseado-em-grafos/blob/main/usuario_curtiu.csv) |
+|[playlist](https://github.com/silva767/Exemplo-de-um-Banco-de-Dados-baseado-em-grafos/blob/main/playlists.csv) | [playlist_contem_musica](https://github.com/silva767/Exemplo-de-um-Banco-de-Dados-baseado-em-grafos/blob/main/playlist_contem_musica.csv) |
+|[generos](https://github.com/silva767/Exemplo-de-um-Banco-de-Dados-baseado-em-grafos/blob/main/generos.csv) | [artista_genero](https://github.com/silva767/Exemplo-de-um-Banco-de-Dados-baseado-em-grafos/blob/main/artista_genero.csv) |
+
+- E o arquivo para o [load csv](https://github.com/silva767/Exemplo-de-um-Banco-de-Dados-baseado-em-grafos/blob/main/criar_rela%C3%A7%C3%B5es.csv).
