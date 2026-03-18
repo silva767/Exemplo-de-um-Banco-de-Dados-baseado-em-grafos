@@ -1,0 +1,30 @@
+LOAD CSV WITH HEADERS FROM 'file:///artista_lancou.csv' AS row
+MATCH (a:Artista {id: toInteger(row.artista_id)}),
+     (m:Musica {id: toInteger(row.musica_id)})
+CREATE (a)-[:LANCOU {data: row.data}]->(m);
+
+LOAD CSV WITH HEADERS FROM 'file:///usuario_curtiu.csv' AS row
+MATCH (u:Usuario {id: toInteger(row.usuario_id)}),
+     (m:Musica {id: toInteger(row.musica_id)})
+CREATE (u)-[:CURTIU {data: row.data}]->(m);
+
+LOAD CSV WITH HEADERS FROM 'file:///usuario_segue.csv' AS row
+MATCH (u1:Usuario {id: toInteger(row.usuario_id)}),
+     (u2:Usuario {id: toInteger(row.segue_id)})
+CREATE (u1)-[:SEGUE]->(u2);
+
+LOAD CSV WITH HEADERS FROM 'file:///usuario_segue_artista.csv' AS row
+MATCH (u:Usuario {id: toInteger(row.usuario_id)}),
+     (a:Artista {id: toInteger(row.artista_id)})
+CREATE (u)-[:SEGUE]->(a);
+
+LOAD CSV WITH HEADERS FROM 'file:///playlist_contem_musica.csv' AS row
+MATCH (p:Playlist {id: toInteger(row.playlist_id)}),
+      (m:Musica {id: toInteger(row.musica_id)})
+MERGE (p)-[r:CONTEM]->(m)
+SET r.ordem = toInteger(row.ordem);
+
+LOAD CSV WITH HEADERS FROM 'file:///artista_genero.csv' AS row
+MATCH (a:Artista {id: toInteger(row.artista_id)}),
+      (g:Genero {nome: row.genero_nome})
+MERGE (a)-[:PERTENCE_A]->(g);
