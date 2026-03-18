@@ -1,6 +1,6 @@
 # Exemplos-de-um-Bancos-de-Dados-baseados-em-grafos
-Será disponibilizado um banco de dados baseado em grafos com uma semente e consultas padrões que podem ser realizadas na sua máquina nativa. 
-O banco de dados é escrito em cypher, uma lingugagem construida pela Neo4j para seus bancos de dados(BD), este projeto foi pensado para exemplificar um serviço de streaming com um BD baseado em grafos demonstrado a vsersatilidade e poder dos grafos.
+Serão disponibilizados exemplos diversos de banco de dados baseado em grafos com sementes e consultas padrões que podem ser realizadas na sua máquina nativa. 
+O banco de dados é escrito em cypher, uma lingugagem construida pela Neo4j para seus bancos de dados(BD), este projeto foi pensado para exemplificar diversos sitemas e serviços com BD's baseados em grafos demonstrando a vsersatilidade e poder dos grafos.
 
 
 ## Abaixo apresentamos uma documentação sobre o banco de dados, cuja finalidade está em exemplificar como seria a construção de banco de serviço de streaming.
@@ -32,3 +32,23 @@ Semente inicial utilizada no teste - [Semente](https://github.com/silva767/Exemp
 No arquivo é disponibilizado uma semente com 180 nós iniciais, para usuários, atores, diretores, filmes e séries, inspirados em filmes e atores reais.
 
 ### DBGraph de um serviço de uma plataforma de música
+
+Com o diferencial de conectar dados por relações, os grafos, se tornam especialmente úteis para modelar serviços de plataformas de música, locais onde relações entre as entidades são prepoderantes, tais como lançar uma música, curtir uma música, criar uma playlist, seguir outra pessoa, etc. Com isso em mente e nas possiblidades que surgem como recomendações personalizadas, descobertas de gostos e tendências, abaixo disponibilizamos um modelo para tal caso.
+
+### Modelagem do banco e de suas entidades
+
+As entidades e suas relações serão estas:
+
+- Usuários
+- Artistas
+- Músicas
+- Playlist
+- Gêneros
+
+- Pertence
+- Curtiu
+- Segue
+- Criou
+- Lançou
+
+Um arquivo com dados para um exemplo de semente são disponibilizados no arquivo xxxx, nele já é possível visualizar diversos caminhos e aplicar algumas consultas, mesmo sendo um modelo simplificado.
