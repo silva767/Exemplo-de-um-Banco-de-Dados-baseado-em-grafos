@@ -33,7 +33,12 @@ No arquivo é disponibilizado uma semente com 180 nós iniciais, para usuários,
 
 ### DBGraph de um serviço de uma plataforma de música
 
-Com o diferencial de conectar dados por relações, os grafos, se tornam especialmente úteis para modelar serviços de plataformas de música, locais onde relações entre as entidades são prepoderantes, tais como lançar uma música, curtir uma música, criar uma playlist, seguir outra pessoa, etc. Com isso em mente e nas possiblidades que surgem como recomendações personalizadas, descobertas de gostos e tendências, abaixo disponibilizamos um modelo para tal caso.
+Com o diferencial de conectar dados por relações, os grafos, se tornam especialmente úteis para modelar serviços de plataformas de música, locais onde relações entre as entidades são prepoderantes, tais como lançar uma música, curtir uma música, criar uma playlist, seguir outra pessoa, etc. Com isso em mente e nas possiblidades que surgem como recomendações personalizadas, descobertas de gostos e tendências, abaixo disponibilizamos um modelo para tal caso e com figura que demonstra os nós e as relações de tal modelo.
+
+<p align="center">
+  <img src="https://drive.google.com/uc?export=view&id=1AmdYAzBAUS-KAER0DJTFqQCoa9a7x2Qi" 
+       width="560">
+</p>
 
 ### Modelagem do banco e de suas entidades
 
