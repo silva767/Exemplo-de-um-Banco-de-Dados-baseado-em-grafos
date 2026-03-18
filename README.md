@@ -52,7 +52,7 @@ As entidades e suas relações serão estas:
 |Playlist | Criou (pessoa e playlist) |
 |Gêneros | Lançou (artista e música) |
 
-Um arquivo com dados para um exemplo de semente são disponibilizados no arquivo xxxx, nele já é possível visualizar diversos caminhos e aplicar algumas consultas, mesmo sendo um modelo simplificado, e que demonstram o poder dos grafos em situações propicias para tal modelagem.
+Um arquivo com dados para um exemplo de semente são disponibilizados no [arquivo](https://github.com/silva767/Exemplo-de-um-Banco-de-Dados-baseado-em-grafos/blob/main/Exemplo_semente_m%C3%BAsica), nele já é possível visualizar diversos caminhos e aplicar algumas consultas, mesmo sendo um modelo simplificado, e que demonstram o poder dos grafos em situações propicias para tal modelagem.
 
 Nesse exemplo a semente similar a realidade será disponibilizada no formato LOAD CSV, um formato que simplica a carga nos bancos de dados, pois são dispostos no formato:
 
@@ -91,3 +91,8 @@ vale lembrar que os arquivos devem ser colocados na pasta import, ao utilizar o 
 |[generos](https://github.com/silva767/Exemplo-de-um-Banco-de-Dados-baseado-em-grafos/blob/main/generos.csv) | [artista_genero](https://github.com/silva767/Exemplo-de-um-Banco-de-Dados-baseado-em-grafos/blob/main/artista_genero.csv) |
 
 - E o arquivo para o [load csv](https://github.com/silva767/Exemplo-de-um-Banco-de-Dados-baseado-em-grafos/blob/main/criar_rela%C3%A7%C3%B5es.csv).
+
+E como exemplo do poder dos grafos nesse exemplo abaixo são apresentadas algumas consultas possíveis, com as demais consultas sendo disponibilizadas no arquivo xxxx.
+
+```
+```
