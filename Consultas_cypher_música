@@ -1,0 +1,137 @@
+ - Recomendação de músicas
+MATCH (u:Usuario {id:1})-[:SEGUE]->(amigo)-[:CURTIU]->(m:Musica)
+WHERE NOT (u)-[:CURTIU]->(m)
+RETURN m.titulo, count(*) AS score
+ORDER BY score DESC
+LIMIT 5
+
+- Recomendação de usuários
+MATCH (u:Usuario {id:1})-[:SEGUE]->()-[:SEGUE]->(rec:Usuario)
+WHERE NOT (u)-[:SEGUE]->(rec) AND u <> rec
+RETURN rec.nome, count(*) AS score
+ORDER BY score DESC
+   
+- Gênero favorito
+MATCH (u:Usuario {id:1})-[:CURTIU]->(m)-[:PERTENCE]->(g)
+RETURN g.nome, count(*) AS freq
+ORDER BY freq DESC
+LIMIT 1
+   
+- Rede social de um usuário
+MATCH (u:Usuario {id:1})-[r:SEGUE]->(p)
+RETURN u, r, p
+-- Mostra:
+quem o usuário segue (usuários + artistas)
+
+- Ecossistema musical completo
+MATCH (a:Artista)-[:LANCOU]->(m:Musica)-[:PERTENCE]->(g:Genero)
+RETURN a, m, g
+LIMIT 25
+-- Mostra:
+artista → música → gênero
+
+- Playlist com músicas ordenadas
+MATCH (p:Playlist {id:1})-[r:CONTEM]->(m:Musica)
+RETURN p, r, m
+ORDER BY r.ordem
+-- Mostra:
+estrutura real de playlist
+
+- Interações dos usuários
+MATCH (u:Usuario)-[r:CURTIU]->(m:Musica)
+RETURN u, r, m
+LIMIT 30
+-- Mostra comportamento do sistema
+
+- Top 5 músicas mais populares
+MATCH (:Usuario)-[:CURTIU]->(m:Musica)
+RETURN m.titulo, count(*) AS curtidas
+ORDER BY curtidas DESC
+LIMIT 5
+
+- Gênero favorito
+MATCH (u:Usuario {id:1})-[:CURTIU]->(m)-[:PERTENCE]->(g)
+RETURN g.nome, count(*) AS freq
+ORDER BY freq DESC
+LIMIT 1
+
+- Artista mais ouvido
+MATCH (:Usuario)-[:CURTIU]->(m:Musica)<-[:LANCOU]-(a:Artista)
+RETURN a.nome, count(*) AS total
+ORDER BY total DESC
+LIMIT 1
+
+-️ Listar músicas de uma playlist (ordenadas)
+MATCH (p:Playlist {id:1})-[r:CONTEM]->(m:Musica)
+RETURN m.titulo, r.ordem
+ORDER BY r.ordem
+-- Mostra a playlist na ordem correta (como no app)
+
+-️ Buscar playlists que contêm uma música específica
+MATCH (p:Playlist)-[:CONTEM]->(m:Musica {titulo:"Blinding Lights"})
+RETURN p.nome
+-- Útil para:
+saber onde uma música aparece
+
+-️ Playlists com mais músicas
+MATCH (p:Playlist)-[:CONTEM]->(m:Musica)
+RETURN p.nome, count(m) AS total
+ORDER BY total DESC
+-- Identifica playlists mais completas/populares
+
+-️ Músicas mais presentes em playlists
+MATCH (p:Playlist)-[:CONTEM]->(m:Musica)
+RETURN m.titulo, count(p) AS vezes
+ORDER BY vezes DESC
+LIMIT 10
+-- Mostra músicas mais reutilizadas
+
+-️ Playlists que compartilham músicas (similaridade)
+MATCH (p1:Playlist)-[:CONTEM]->(m:Musica)<-[:CONTEM]-(p2:Playlist)
+WHERE p1 <> p2
+RETURN p1.nome, p2.nome, count(m) AS em_comum
+ORDER BY em_comum DESC
+LIMIT 10
+-- Muito importante para:
+recomendação de playlists
+
+-️ Recomendar músicas com base em uma playlist
+MATCH (p:Playlist {id:1})-[:CONTEM]->(m:Musica)
+MATCH (m)-[:PERTENCE]->(g:Genero)
+MATCH (rec:Musica)-[:PERTENCE]->(g)
+WHERE NOT (p)-[:CONTEM]->(rec)
+RETURN rec.titulo, count(*) AS score
+ORDER BY score DESC
+LIMIT 5
+-- Recomendação baseada em gênero da playlist
+
+- Usuários que podem gostar de uma playlist
+MATCH (p:Playlist)-[:CONTEM]->(m:Musica)
+MATCH (u:Usuario)-[:CURTIU]->(m)
+RETURN p.nome, u.nome, count(m) AS afinidade
+ORDER BY afinidade DESC
+-- Relaciona playlist ↔ usuário
+
+-️ Primeira e última música da playlist
+MATCH (p:Playlist {id:1})-[r:CONTEM]->(m:Musica)
+WITH p, m, r
+ORDER BY r.ordem
+RETURN p.nome,
+      collect(m.titulo)[0] AS primeira,
+      collect(m.titulo)[-1] AS ultima
+-- Mostra estrutura da playlist
+
+-️ Músicas consecutivas (ordem sequencial)
+MATCH (p:Playlist {id:1})-[r1:CONTEM]->(m1:Musica),
+     (p)-[r2:CONTEM]->(m2:Musica)
+WHERE r2.ordem = r1.ordem + 1
+RETURN m1.titulo, m2.titulo
+ORDER BY r1.ordem
+-- Mostra pares consecutivos (tipo “próxima música”)
+
+- Playlist com maior diversidade de gêneros
+MATCH (p:Playlist)-[:CONTEM]->(m:Musica)-[:PERTENCE]->(g:Genero)
+RETURN p.nome, count(DISTINCT g) AS diversidade
+ORDER BY diversidade DESC
+LIMIT 1
+-- Excelente para análise avançada
