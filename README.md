@@ -92,10 +92,19 @@ vale lembrar que os arquivos devem ser colocados na pasta import, ao utilizar o 
 
 - E o arquivo para o [load csv](https://github.com/silva767/Exemplo-de-um-Banco-de-Dados-baseado-em-grafos/blob/main/criar_rela%C3%A7%C3%B5es.csv).
 
-E como exemplo do poder dos grafos nesse exemplo abaixo são apresentadas algumas consultas possíveis, com as demais consultas sendo disponibilizadas no arquivo xxxx.
+E como exemplo do poder dos grafos nesse exemplo abaixo são apresentadas algumas consultas possíveis, com as demais consultas sendo disponibilizadas no arquivo [Consultas_cypher_música](https://github.com/silva767/Exemplo-de-um-Banco-de-Dados-baseado-em-grafos/blob/main/Consultas_cypher_m%C3%BAsica).
 
+-️ Recomendar músicas com base em uma playlist
 ```
+MATCH (p:Playlist {id:1})-[:CONTEM]->(m:Musica)
+MATCH (m)-[:PERTENCE]->(g:Genero)
+MATCH (rec:Musica)-[:PERTENCE]->(g)
+WHERE NOT (p)-[:CONTEM]->(rec)
+RETURN rec.titulo, count(*) AS score
+ORDER BY score DESC
+LIMIT 5
 ```
+-- Recomendação baseada em gênero da playlist permite dar ao usuário uma experiência mais pessoal.
 
 ### BDGraph de uma rede social
 
@@ -133,4 +142,6 @@ Com o dataset em mãos definimos os seguintes nós e relações para popular o b
 | POSTED_IN       | Post → Month             | Mês/ano da publicação                         |
 | NEXT            | Month → Month            | Relação temporal entre meses consecutivos     |
 
-Com a definição dos nós e relação podemos fazer a carga do dataset no banco de dados e neste exemplo a linguagem Python é utilizada, com a biblioteca do Neo4j que permite fazer a integração com o servidor. O código está no arquivo xxx.
+Com a definição dos nós e relação podemos fazer a carga do dataset no banco de dados e neste exemplo a linguagem Python é utilizada, com a biblioteca do Neo4j que permite fazer a integração com o servidor. O código está no arquivo [social_graph](https://github.com/silva767/Exemplo-de-um-Banco-de-Dados-baseado-em-grafos/blob/main/social_graph.py).
+
+Consultas serão disponibilzadas posteriormente.
