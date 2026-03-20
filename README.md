@@ -96,3 +96,19 @@ E como exemplo do poder dos grafos nesse exemplo abaixo são apresentadas alguma
 
 ```
 ```
+
+### BDGraph de uma rede social
+
+Agora tomamos como exemplo uma rede social, o modelamento dela é interessante pois expressa bem o modelo de nós e relações entre eles, visto que as redes sociais são uma das manifestações mais diretas de um grafo. Tomaremos como plataforma o Instagram e utilizaremos um dataset disponível no [Kaggle](https://www.kaggle.com/).
+
+Para baixar o dataset são disponibilizadas duas algumas opções, o arquivo .zip e a utilização da biblioteca kagglehub. Abaixo está disponível a segunda opção.
+
+```
+import kagglehub
+
+path = kagglehub.dataset_download("kundanbedmutha/instagram-analytics-dataset")
+print(path)
+```
+Nesse formato é possível integrar Python com a API do Neo4j que permite manipular os grafos pelo ambiente de programação.
+
+Com o dataset em mãos definimos os seguintes nós e relações para serem formados xxx
