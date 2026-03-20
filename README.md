@@ -111,4 +111,26 @@ print(path)
 ```
 Nesse formato é possível integrar Python com a API do Neo4j que permite manipular os grafos pelo ambiente de programação.
 
-Com o dataset em mãos definimos os seguintes nós e relações para serem formados xxx
+Com o dataset em mãos definimos os seguintes nós e relações para popular o banco de dados:
+
+| Nó            | Descrição                                   | Propriedades principais                                                                 |
+|---------------|---------------------------------------------|----------------------------------------------------------------------------------------|
+| Account       | Representa a conta do Instagram             | account_id, account_type, followers                                                   |
+| Post          | Representa uma publicação                   | post_id, likes, comments, shares, saves, impressions, engagement_rate, followers_gained, caption_length, hashtags_count, date_time, day, viral_score |
+| MediaType     | Tipo de mídia do post                       | type                                                                                   |
+| Category      | Categoria do conteúdo                       | name                                                                                   |
+| TrafficSource | Origem do tráfego                           | source                                                                                 |
+| Day           | Dia da semana                               | name                                                                                   |
+| Month         | Mês/ano da publicação                       | year, month                                                                            |
+
+| Relação         | Origem → Destino         | Descrição                                      |
+|-----------------|--------------------------|-----------------------------------------------|
+| POSTED          | Account → Post           | Conta criou o post                            |
+| HAS_MEDIA_TYPE  | Post → MediaType         | Tipo de mídia do post                         |
+| IN_CATEGORY     | Post → Category          | Categoria do conteúdo                         |
+| FROM_TRAFFIC    | Post → TrafficSource     | Origem do tráfego                             |
+| POSTED_ON       | Post → Day               | Dia da semana da publicação                   |
+| POSTED_IN       | Post → Month             | Mês/ano da publicação                         |
+| NEXT            | Month → Month            | Relação temporal entre meses consecutivos     |
+
+Com a definição dos nós e relação podemos fazer a carga do dataset no banco de dados e neste exemplo a linguagem Python é utilizada, com a biblioteca do Neo4j que permite fazer a integração com o servidor. O código está no arquivo xxx.
